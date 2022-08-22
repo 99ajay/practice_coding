@@ -1,18 +1,30 @@
-//all number should be occur twice except 1 number then find out that 1 number
 #include<iostream>
 using namespace std;
+string frequency(string input1)
+{
+  string s;
+  int count[26]={0};
+	for(int i=0;i<input1.length();i++)
+	{
+		count[input1[i]-'a']++;
+	}
+	for(int i=0;i<26;i++)
+	{
+		if(count[i]>0)
+		{
+			s.push_back(char(i+'a'));
+		
+			s.push_back(count[i]+'0');
+		}
+	}
+	return s;
+	throw "Function frequency(string input1) not implemented. ";
+}
 int main()
 {
-    int n;
-    cin>>n;
-    int no;
-   
-    int ans=0;//a^a=0,a^0=a//
-    for(int i=0;i<n;i++)
-    { 
-        cin>>no;
-        ans=ans^no;
-    }
-    cout<<ans<<endl;
-    return 0;
+	string str;
+	cin>>str;
+	cout<<frequency(str);
+	 
+	return 0;
 }
