@@ -73,12 +73,32 @@ public class Main {
         return sum;
     }
 
+    public static int max(Node node) {
+        if (node == null) {
+            return Integer.MIN_VALUE;
+        }
+        int lmax = max(node.left);
+        int rmax = max(node.right);
+        return Math.max(Math.max(lmax, rmax), node.data);
+    }
+
+    public static int height(Node node) {
+        if (node == null) {
+            return -1;
+        }
+        int lheight = height(node.left);
+        int rheight = height(node.right);
+        return Math.max(lheight, rheight) + 1;
+    }
+
     public static void main(String[] args) {
         Integer arr[] = { 10, 20, 40, 60, null, null, null, 50, 70, null, null, 80, null, null, 30, null, 90, 100, null,
                 null, null };
         Node root = construct(arr);
         System.out.println(size(root));
         System.out.println(sum(root));
+        System.out.println(max(root));
+        System.out.println(height(root));
     }
 
 }
